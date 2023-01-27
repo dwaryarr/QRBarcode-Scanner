@@ -16,12 +16,14 @@ import com.journeyapps.barcodescanner.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity {
 //    private Button btnScan;
-private LinearLayout btnScan;
+private LinearLayout btnScan,btnHistory,btnGenerate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnScan = findViewById(R.id.btnScan);
+        btnHistory = findViewById(R.id.btnHistory);
+        btnGenerate = findViewById(R.id.btnGenerate);
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +39,25 @@ private LinearLayout btnScan;
                 intentIntegrator.setCaptureActivity(CaptureActivity.class);
                 //Initiate Scan
                 intentIntegrator.initiateScan();
+            }
+        });
+
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                                Intent i = new Intent(MainActivity.this, HasilScanActivity.class);
+//                Intent i = new Intent(MainActivity.this, ScanHistoryActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(i);
+            }
+        });
+
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, GenerateActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(i);
             }
         });
     }

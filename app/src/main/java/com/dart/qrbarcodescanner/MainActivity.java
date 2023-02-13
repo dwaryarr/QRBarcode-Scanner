@@ -21,25 +21,22 @@ private LinearLayout btnScan,btnHistory,btnGenerate;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnScan = findViewById(R.id.btnScan);
+//        btnScan = findViewById(R.id.btnScan);
         btnHistory = findViewById(R.id.btnHistory);
         btnGenerate = findViewById(R.id.btnGenerate);
 
-        btnScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
-                //Sett Prompt Text
-                intentIntegrator.setPrompt("For flash use volume up key");
-                //Set Beep
-                intentIntegrator.setBeepEnabled(true);
-                //Locked orientation
-                intentIntegrator.setOrientationLocked(false);
-                //Set Capture Activity
-                intentIntegrator.setCaptureActivity(CaptureActivity.class);
-                //Initiate Scan
-                intentIntegrator.initiateScan();
-            }
+        findViewById(R.id.btnScan).setOnClickListener(view -> {
+            IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
+            //Sett Prompt Text
+            intentIntegrator.setPrompt("For flash use volume up key");
+            //Set Beep
+            intentIntegrator.setBeepEnabled(true);
+            //Locked orientation
+            intentIntegrator.setOrientationLocked(false);
+            //Set Capture Activity
+            intentIntegrator.setCaptureActivity(CaptureActivity.class);
+            //Initiate Scan
+            intentIntegrator.initiateScan();
         });
 
         btnHistory.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +70,8 @@ private LinearLayout btnScan,btnHistory,btnGenerate;
 
         if (hasil!= null){
             Toast.makeText(this, hasil, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,HasilScanActivity.class).putExtra("hasil",hasil));
+
         }else {
             // when result content is null
             //display toast

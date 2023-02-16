@@ -158,7 +158,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Created with "
+                android:text="Made with "
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold"

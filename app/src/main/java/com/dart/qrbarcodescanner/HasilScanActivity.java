@@ -1,5 +1,7 @@
 package com.dart.qrbarcodescanner;
 
+import static android.webkit.URLUtil.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
@@ -7,7 +9,6 @@ import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,9 +33,16 @@ public class HasilScanActivity extends AppCompatActivity {
         findViewById(R.id.btnKembali).setOnClickListener(view -> onBackPressed());
 
         btnWebSearch.setOnClickListener(view -> {
-            Uri uri = Uri.parse("https://www.google.com/search?q="+ hasilscan);
-            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-            startActivity(intent);
+            if (isValidUrl(hasilscan)){
+                Uri uri = Uri.parse(hasilscan);
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
+            }
+            else {
+                Uri uri = Uri.parse("https://www.google.com/search?q="+ hasilscan);
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
+            }
         });
 
         btnCopy.setOnClickListener(view -> {
@@ -47,8 +55,9 @@ public class HasilScanActivity extends AppCompatActivity {
         btnShare.setOnClickListener(view -> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TITLE, hasilscan);
             sendIntent.putExtra(Intent.EXTRA_TEXT, hasilscan);
-            sendIntent.setType("text/plain");
+            sendIntent.setType("*/*");
             startActivity(sendIntent);
         });
     }

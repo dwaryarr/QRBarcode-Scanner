@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_header_selector"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -56,82 +56,84 @@
 
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/btnHistory"-->
-<!--            android:layout_width="135dp"-->
-<!--            android:layout_height="125dp"-->
-<!--            android:layout_marginEnd="30dp"-->
-<!--            android:gravity="center"-->
-<!--            android:background="@drawable/card_shape"-->
-<!--            android:orientation="vertical">-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnHistory"
+            android:layout_width="135dp"
+            android:layout_height="125dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:background="@drawable/card_shape"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/_8sdp">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:orientation="vertical">-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-<!--                <ImageView-->
-<!--                    android:layout_width="75dp"-->
-<!--                    android:layout_height="75dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:src="@drawable/history"/>-->
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/history"/>
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Scan History"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan History"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-<!--            </LinearLayout>-->
+            </LinearLayout>
 
-<!--        </LinearLayout>-->
+        </androidx.cardview.widget.CardView>
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/btnGenerate"-->
-<!--            android:layout_width="135dp"-->
-<!--            android:layout_height="125dp"-->
-<!--            android:gravity="center"-->
-<!--            android:background="@drawable/card_shape"-->
-<!--            android:orientation="vertical">-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnGenerate"
+            android:layout_width="135dp"
+            android:layout_height="125dp"
+            android:gravity="center"
+            android:background="@drawable/card_shape"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/_8sdp">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:orientation="vertical">-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-<!--                <ImageView-->
-<!--                    android:layout_width="75dp"-->
-<!--                    android:layout_height="75dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:src="@drawable/generate"/>-->
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/generate"/>
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Generate"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Generate"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    />
 
-<!--            </LinearLayout>-->
+            </LinearLayout>
 
-<!--        </LinearLayout>-->
+        </androidx.cardview.widget.CardView>
 
 
-<!--    </LinearLayout>-->
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

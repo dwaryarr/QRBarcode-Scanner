@@ -3,19 +3,19 @@ package com.dart.qrbarcodescanner;
 import static android.webkit.URLUtil.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HasilScanActivity extends AppCompatActivity {
+public class ResultScanActivity extends AppCompatActivity {
     private String hasilscan;
-    private LinearLayout btnWebSearch,btnCopy,btnShare;
+    private CardView btnWebSearch,btnCopy,btnShare;
     private ClipboardManager myClipboard;
     private ClipData myClip;
     private TextView etHasil;

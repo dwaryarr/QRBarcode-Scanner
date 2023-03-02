@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,7 +30,7 @@ private CardView btnHistory,btnGenerate;
             //Sett Prompt Text
             intentIntegrator.setPrompt("For flash use volume up key");
             //Set Beep
-            intentIntegrator.setBeepEnabled(true);
+            intentIntegrator.setBeepEnabled(false);
             //Locked orientation
             intentIntegrator.setOrientationLocked(false);
             //Set Capture Activity
@@ -62,9 +65,19 @@ private CardView btnHistory,btnGenerate;
         String hasil = intentResult.getContents();
         if (hasil!= null){
             Toast.makeText(this, hasil, Toast.LENGTH_SHORT).show();
+//            saveScan(hasil);
             startActivity(new Intent(this, ResultScanActivity.class).putExtra("hasil",hasil));
         }else {
             Toast.makeText(this,"OOPS, You did not scan anything",Toast.LENGTH_SHORT).show();
         }
     }
+
+//    private void saveScan(String hasil) {
+//        SQLiteDatabase db = new DataHelper(this).getWritableDatabase();
+//        db.execSQL("INSERT INTO scanhistory (content) VALUES('"+hasil+"');");
+////        tampilkan data dari database di logcat
+//        db.execSQL("SELECT * FROM scanhistory");
+//        Log.d("Data Scan History", DatabaseUtils.dumpCursorToString(db.rawQuery("SELECT * FROM scanhistory",null)));
+//        db.close();
+//    }
 }
